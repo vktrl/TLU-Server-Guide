@@ -16,7 +16,7 @@ SSHFS 2.5.0 on vana, aga töötab. Uuema versiooni (pead ise kompileerima) saad 
 
 `ssh kasutaja@lin2.tlu.ee -L 2222:greeny.cs.tlu.ee:22 -L 8888:greeny:cs:tlu.ee:80`
 
-Nüüd saad välisest võrgust Greeny veebiserverile ligi aadressil http://localhost:8888 ja üle SSH $ssh -p 2222 kasutaja@localhost
+Nüüd saad välisest võrgust Greeny veebiserverile ligi aadressil http://localhost:8888 ja üle SSH `ssh -p 2222 kasutaja@localhost`
 
 ## Loo SSHFS ühendus
 
