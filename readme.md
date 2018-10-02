@@ -1,12 +1,18 @@
-# Mugavam ligipääs Greenyle
+# Mugavam ligipääs Greenyle macOS ja Linuxi masinatest
 
 Oma arvutis Greeny failidega tegelemine on natuke tüütu. Üks variant on kasutada SSH-d ja vim + tmux failidega töötamiseks ja SCP klieni failide üles/alla laadimiseks. Võid kasutada mõne tekstiredaktori SFTP pluginat (mul tekkisid synciga probleemid). Kolmas variant on mountida Greeny failid oma kohalikku failisüsteemi (minu meelest kõige mugavam).
 
 ## Laadi alla ja installi FUSE ja SSHFS
 
+### macOS
+
 https://osxfuse.github.io
 
 SSHFS 2.5.0 on vana, aga töötab. Uuema versiooni (pead ise kompileerima) saad siit: https://github.com/libfuse/sshfs
+
+### GNU/systemd/Linux
+
+`sudo apt-get install sshfs`
 
 ## Tekita kohalik mount point
 
