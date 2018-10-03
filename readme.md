@@ -115,14 +115,17 @@ Ava brauseris ```http://localhost:8888/~*sinu-greeny-kasutaja*```
 
 ##### SFTP (WinSCP)
 
-```File protocol: SFTP
+```
+File protocol: SFTP
 Hostname: localhost
 Port: 2222
-User name: greeny-kasutaja```
+User name: greeny-kasutaja
+```
 
 Kui tahad kasutada parooli asemel võtit, siis kopeeri oma võti WLSist üle Windowsi failisüsteemi  
 ```cp ~/.ssh/id_rsa /mnt/c/Users/Kasutajanimi/Documents/tlu_rsa```  
-Vali kopeeritud fail WinSCP login aknas ```Advanced... > SSH > Athentication > Private key file: ______```
+Vali kopeeritud fail WinSCP login aknas
+```Advanced... > SSH > Athentication > Private key file: ______```
 
 ##### Eksperimentaalne värk
 
@@ -147,10 +150,9 @@ Juhised töötavad ka Linuxi masinates. Võib-olla pead käske ümber korraldama
 
 Hangi FUSE ja SSHFS:  
 https://osxfuse.github.io
-
 SSHFS 2.5.0 on vana, aga töötab. Uuema versiooni (pead ise kompileerima) saad siit: https://github.com/libfuse/sshfs
 
-###### Linux
+##### Linux
 
 Debiani baasil distrotes (Ubuntu, Mint, jms)
 
