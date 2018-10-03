@@ -42,15 +42,15 @@ https://winscp.net/eng/download.php
 
 Ava Ubuntu rakendus ja toimeta järgnevalt:
 
-1. Loome uue võtmepaari. Key location jäta samaks, passphrase pole hetkel vajalik, kuna me ei turva kriitilise tähtsusega serverit.
+1. Loome uue võtmepaari. Key location jäta samaks, passphrase pole hetkel vajalik, kuna me ei turva kriitilise tähtsusega serverit  
 ```ssh-keygen -t rsa -b 4096```
-2. Paigaldame oma värske avaliku võtme lin2.tlu.ee serverisse. Sisesta oma TLU parool, kui küsitakse.
+2. Paigaldame oma värske avaliku võtme lin2.tlu.ee serverisse. Sisesta oma TLU parool, kui küsitakse  
 ```ssh-copy-id -i ~/.ssh/id_rsa *tlu-kasutaja*@lin2.tlu.ee```
-3. Loome tunneli, et sama võti Greeny-sse paigaldada
+3. Loome tunneli, et sama võti Greeny-sse paigaldada  
 ```ssh *tlu-kasutaja*@lin2.tlu.ee -L 2222:greeny.cs.tlu.ee:22```
-4. Avame *uue* Ubuntu akna ja paigaldame võtme Greeny serverisse. Kasuta oma Greeny parooli
+4. Avame *uue* Ubuntu akna ja paigaldame võtme Greeny serverisse. Kasuta oma Greeny parooli  
 ```ssh-copy-id -i ~/.ssh/id_rsa -p 2222 *greeny-kasutaja*@localhost```
-5. Sulge uus aken ja logi lin2 serverist välja. Kirjuta mõlemas aknas:
+5. Sulge uus aken ja logi lin2 serverist välja. Kirjuta mõlemas aknas:  
 ```exit```
 
 Edaspidi pole sul vaja paroole trükkida :)
