@@ -9,11 +9,11 @@ Kõikvõimalikud viisid kuidas oma elu ülikooli serveritega suheldes mugavamaks
 * Mountime Greeny oma koduse masina failisüsteemi lihtsamaks ligipääsuks
 * Muuhulgas õpime kasutama Windowsi Linuxi alamsüsteemi
 
-## Windows
+# Juhised Windowsi kasutajatele
 
-### Tarkvara
+## 1) Paigaldame Tarkvara
 
-##### Linux subsystem
+### Linux subsystem
 
 Enamasti soovitatakse kasutada PuTTY-t, kuid Windows 10 poolt pakutav WLS (Windows Linux Subsystem) on palju võimsam ja mugavam meetod teiste Linuxi baasil masinatega (ehk siis enamus serverid maamunal) suhtlemiseks.
 Informaatikud peaksid end käsureal mugavalt tundma.
@@ -24,21 +24,21 @@ Informaatikud peaksid end käsureal mugavalt tundma.
 3) Ava Microsoft Store ja paigalda endale sobiv distro - soovitan Ubuntut  
 4) Pärast installi ava Ubuntu rakendus ja seadista oma kasutajanimi jms  
 
-##### WinFsp ja SSHFS windowsile (vajalik eksperimentaalsete featuuride jaoks allpool)
+#### WinFsp ja SSHFS windowsile (vajalik eksperimentaalsete featuuride jaoks allpool)
 
 1) laadi alla ja installi  
 https://github.com/billziss-gh/winfsp/releases/  
 https://github.com/billziss-gh/sshfs-win/releases/
 
-##### WinSCP
+#### WinSCP
 
 SFTP klient failide üles ja alla laadimiseks, juhuks kui minu poolt pakutavad eksperimentaalsed featuurid liiga hirmsad on või mingil põhjusel ei tööta.
 
 https://winscp.net/eng/download.php
 
-### Mugav autentimine RSA võtmepaariga (võid vahele jätta, kui sulle meeldib paroole trükkida)
+## 2) Seadistame mugava autentimise RSA võtmepaariga
 
-#### Võtmete loomine
+### Võtmete loomine
 
 Ava Ubuntu rakendus ja toimeta järgnevalt:
 
@@ -55,7 +55,7 @@ Ava Ubuntu rakendus ja toimeta järgnevalt:
 
 Edaspidi pole sul vaja paroole trükkida :)
 
-#### ssh-agent (valikuline)
+### ssh-agent seadistus (valikuline)
 
 SSH agent suunab sinu masinas oleva võtme edasi, kui ühendad masinaga üle teise masina (nt. lin2.tlu.ee shellist greeny.cs.tlu.ee ühendades). Kui kasutad tunneleid, pole seda vaja.
 WSL tühistab akna sulgemisel taustprotsessid, seega peame agendi akna avamisel automaatselt kävitama ja hoolitsema selle eest, et neid oleks ainult 1. Kasutame lahti jäänud akent ja seadistame agendi.
@@ -92,7 +92,7 @@ WSL tühistab akna sulgemisel taustprotsessid, seega peame agendi akna avamisel 
 4. Laeme uue .bashrc  
 ````source ~/.bashrc````
 
-### Greeny-sse ühendamine
+## 3) Loome ühenduse ülikooli serveriga
 
 Suuname kohalikud pordid. See võimaldab meil välisvõrgust lin2 vahendusel Greenyga suhelda.
 
@@ -101,20 +101,21 @@ Suuname kohalikud pordid. See võimaldab meil välisvõrgust lin2 vahendusel Gre
 
 Localhost pordid 2222 ja 8888 on nüüd suunatud. *See aken peab jääma avatuks senikaua kuni tahad Greeny ühendust kasutada!*
 
-#### Greeny kasutamine üle tunneli
+## 4) Greeny kasutamine üle tunneli
 
 Kõik pöördumised teeme edaspidi locahost või 127.0.0.1 poole
 
-##### SSH
-
+### SSH
+Terminalis
 ```ssh -p 2222 *greeny-kasutaja*@localhost```
 
-##### Veeb
+#### Veeb
 
-Ava brauseris ```http://localhost:8888/~*sinu-greeny-kasutaja*```
+Ava brauseris
+```http://localhost:8888/~*sinu-greeny-kasutaja*```
 
-##### SFTP (WinSCP)
-
+#### SFTP (WinSCP)
+Seadistus:
 ```
 File protocol: SFTP
 Hostname: localhost
@@ -127,7 +128,7 @@ Kui tahad kasutada parooli asemel võtit, siis kopeeri oma võti WLSist üle Win
 Vali kopeeritud fail WinSCP login aknas
 ```Advanced... > SSH > Athentication > Private key file: ______```
 
-##### Eksperimentaalne värk
+#### Eksperimentaalne värk
 
 SFTP asemel on võmalik Greeny kataloog otse oma kohalikku failisüsteemi mountida ja töötada failidega otse, mitte neid üles/alla laadides.
 WinFsp ja sshfs-win peavad olema installitud.
@@ -140,28 +141,28 @@ Sinu Greeny kataloog on nüüd võrgukettana sinu arvutis
 
 P.S. Atom editor on üle SSHFSi aeglane. Ilmselt git muudatuste trackimise pärast vms.
 
-### macOS ja Linux
+# macOS ja Linux
 
-Juhised töötavad ka Linuxi masinates. Võib-olla pead käske ümber korraldama, aga kui sa Linuxit töölauana kasutad, siis peaksid sellega ilusti hakkama saama.
+Juhised macOS töötavad ka Linuxi masinates. Võib-olla pead käske ümber korraldama, aga kui sa Linuxit töölauana kasutad, siis peaksid sellega ilusti hakkama saama.
 
-#### Tarkvara
+## 1) Paigaldame tarkvara
 
-##### macOS
+### macOS
 
 Hangi FUSE ja SSHFS:  
 https://osxfuse.github.io
 SSHFS 2.5.0 on vana, aga töötab. Uuema versiooni (pead ise kompileerima) saad siit: https://github.com/libfuse/sshfs
 
-##### Linux
+### Linux
 
 Debiani baasil distrotes (Ubuntu, Mint, jms)
 
 1. Installi SSHFS  
 ```sudo apt-get update && sudo apt-get -y install sshfs```
 
-### Mugav autentimine RSA võtmepaariga (võid vahele jätta, kui sulle meeldib paroole trükkida)
+## 2) Seadistame mugava autentimise RSA võtmepaariga
 
-#### Võtmete loomine
+### Võtmete loomine
 
 Ava Terminal ja toimeta järgnevalt:
 
@@ -181,8 +182,7 @@ Ava Terminal ja toimeta järgnevalt:
 Ma ei mäleta täpseid protsesse, aga macOS peal käis asi umbes nii, et ```ssh-add -K``` lisab parooliga genereeritud võtmed keychaini ja lisades ```ssh-add -A 2>/dev/null;``` oma .bash_profile faili tõmmatakse võtmed automaatselt sisse. Vähemalt mul tundub töötavat ja mul ei ole huvi oma arvutit puhtaks teha, et asja algusest peale testida. Tunneleid tehes pole seda enivei vaja.
 Linuxi jaoks googelda ```ssh-agent linux```
 
-### Greeny kasutamine
-
+## 2) Loome ühenduse ülikooli serveriga
 Suuname kohalikud pordid. See võimaldab meil välisvõrgust lin2 vahendusel Greenyga suhelda.
 
 1. Loome lin2 ühenduse ja suuname kohalikud pordid Greeny HTTP ja SSH pihta  
@@ -192,20 +192,19 @@ Localhost pordid 2222 ja 8888 on nüüd suunatud.
 
 NB! See aken peab jääma avatuks senikaua kuni tahad Greeny ühendust kasutada!
 
-#### Greeny kasutamine üle tunneli
-
+## 3) Greeny kasutamine üle tunneli
 Kõik pöördumised teeme edaspidi locahost või 127.0.0.1 poole
 
-##### SSH
-
+#### SSH
+Terminalis
 ```ssh -p 2222 greeny-kasutaja@localhost```
 
-##### Veeb
+#### Veeb
 
-Ava brauseris ```http://localhost:8888/~greeny-kasutaja```
+Ava brauseris
+```http://localhost:8888/~greeny-kasutaja```
 
-##### Failisüsteemi mountimine üle SSH
-
+#### Failisüsteemi mountimine üle SSH
 Failide üle SCP/SFTP edasi-tagasi saatmise asemel on võimalik oma kodukataloog Greenys otse enda masinasse ühendada.
 
 1. Tekita kohalik mount point  
